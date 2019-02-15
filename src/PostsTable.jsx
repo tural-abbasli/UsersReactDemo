@@ -14,7 +14,7 @@ class PostsTable extends Component {
                     {
                         this.props.data.map(post => {
                             return(
-                                <tr>
+                                <tr key={post.id}>
                                     <td>{post.title}</td>
                                     <td>{post.body}</td>
                                 </tr>            

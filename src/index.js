@@ -13,11 +13,14 @@ class App extends Component {
     error:null,
     posts:[]
   };
-  componentDidMount(){
-    Promise.all([Axios.get('https://jsonplaceholder.typicode.com/users'),
+  async componentDidMount(){
+    await Promise.all([Axios.get('https://jsonplaceholder.typicode.com/users'),
     Axios.get('https://jsonplaceholder.typicode.com/posts')])
       .then(([res1,res2]) => {
-        this.setState({users:res1.data,load:true,posts:res2.data})
+        this.setState({
+          users:res1.data,
+          load:true,
+          posts:res2.data})
       })
       .catch(err => this.setState({error:err}));
   }
